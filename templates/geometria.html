@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h1>Geometria</h1>
+
+<div class="calculos">
+
+    <div class="card_operacao">
+        <h2>Triângulo Equilátero</h2>
+        <form class="form-somar" action="{{ url_for('triangulo') }}" method="post">
+            <label>
+                <input placeholder="Digite o lado" name="form-n1" class="form-control">
+            </label>
+
+            <p class="resultado">
+                {% if perimetro is defined %}
+            <h5>Perimetro</h5>{{ n1 }} + {{ n1 }} + {{n1}} = {{ perimetro }}
+            {% else %}
+            {% endif %}
+            </p>
+
+            <p class="resultado">
+                {% if area is defined %}
+            <h5>Área</h5>{{ n1 }} * {{ n1 }} / 2 = {{ area }}
+            {% else %}
+            {% endif %}
+            </p>
+            <button type="submit" class="btn btn-info">Calcular </button>
+        </form>
+    </div>
+
+    <div class="card_operacao">
+        <h2>Circulo</h2>
+        <form class="form-somar" action="{{ url_for('circulo') }}" method="post">
+            <label>
+                <input placeholder="Digite o raio" name="form-n2" class="form-control">
+            </label>
+
+            <p class="resultado">
+            {% if perimetro_2 is defined %}
+            <h5>Perimetro</h5> 2 * 3.14 * {{ n2 }}  = {{ perimetro_2 }}
+            {% else %}
+            {% endif %}
+            </p>
+
+            <p class="resultado">
+            {% if area_2 is defined %}
+            <h5>Área</h5> 3.14 * {{ n2 }} ** 2 = {{ area_2 }}
+            {% else %}
+            {% endif %}
+            </p>
+            <button type="submit" class="btn btn-info">Calcular</button>
+        </form>
+    </div>
+
+    <div class="card_operacao">
+        <h2>Quadrado</h2>
+        <form class="form-somar" action="{{ url_for('quadrado') }}" method="post">
+            <label>
+                <input placeholder="Digite o lado" name="form-n3" class="form-control">
+            </label>
+
+            <p class="resultado">
+            {% if perimetro_3 is defined %}
+            <h5>Perimetro</h5> {{ n3 }} * 4 = {{ perimetro_3 }}
+            {% else %}
+            {% endif %}
+            </p>
+
+            <p class="resultado">
+            {% if area_3 is defined %}
+            <h5>Área</h5> {{ n3 }} * {{ n3 }} = {{ area_3 }}
+            {% else %}
+            {% endif %}
+            </p>
+            <button type="submit" class="btn btn-info">Calcular</button>
+        </form>
+    </div>
+
+    <div class="card_operacao">
+        <h2>Hexágono</h2>
+        <form class="form-somar" action="{{ url_for('hexagono') }}" method="post">
+            <label>
+                <input placeholder="Digite o lado" name="form-n4" class="form-control">
+            </label>
+
+            <p class="resultado">
+            {% if perimetro_4 is defined %}
+            <h5>Perimetro</h5> {{ n4 }} * 6 = {{ perimetro_4 }}
+            {% else %}
+            {% endif %}
+            </p>
+
+            <p class="resultado">
+            {% if area_4 is defined %}
+            <h5>Área</h5> {{ n4 }} * {{ n4 }} / 2 * 6 = {{ area_4 }}
+            {% else %}
+            {% endif %}
+            </p>
+            <button type="submit" class="btn btn-info">Calcular</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
