@@ -9,8 +9,45 @@ body {
     font-family: Arial, sans serif;
 }
 
+.carrossel {
+    height: 100vh;
+}
+
+.title-senai{
+    font-family: "Dubai Medium";
+}
+
+.subtitle-senai{
+    font-family: "Dubai Light";
+}
+
+.cursos{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.curso-text{
+    display: flex;
+    flex-direction: column;
+    font-family: "Fira Code Medium";
+    align-items: center;
+    justify-content: center;
+    color: cadetblue;
+    padding: 50px;
+---
+}
+
+.descricao {
+    display: flex;
+    font-family: "Fira Code Light", serif;
+    font-size: 20px;
+    color: black;
+    padding: 10px;
+}
+
 .menu {
-    background-color: deepskyblue;
+    background-color: cadetblue;
     width: 100%;
     height: 50px;
 }

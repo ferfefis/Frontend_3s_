@@ -2,6 +2,22 @@
 
 {% block conteudo %}
 <h1>Geometria</h1>
+<!-- Passo 2: Verifica se possui mensagens enviadas pelo app -->
+<!-- Passo 3: Definir "with_categories=true" caso queira ter acesso as categorias -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-error px-3">
+    <!-- Passo 4: Percorrer a lista de mensagens -->
+    {% for category, message in messages %}
+    <!-- Passo 5: Criar um card filho -->
+    <div class="alert {{ category }} alert-dismissible fade show px-5" role="alert">
+        <strong>{{ message }}</strong>.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
 
 <div class="calculos">
 
@@ -25,7 +41,30 @@
             {% else %}
             {% endif %}
             </p>
-            <button type="submit" class="btn btn-info">Calcular </button>
+            <button type="submit" class="btn btn-info">Calcular</button>
+
+            <div class="accordion" id="accordion1">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                            <i class="bi bi-info-circle"></i> Como Calcular?
+                        </button>
+                    </h2>
+                    <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordion1">
+                        <div class="accordion-body">
+                            <h4>Área e Perímetro</h4>
+                            <p>Perímetro: O perímetro de um triângulo equilátero é a soma dos comprimentos de seus três
+                                lados. Como todos os lados são iguais, a fórmula é:
+                                P = 3 a. Onde a é o comprimento de um lado do triângulo. <br>
+                                Área: A área de um triângulo equilátero pode ser calculada usando a seguinte fórmula:
+                                \[ A = \frac{a\^2 \sqrt{3}}{4} \]
+                                Essa fórmula é derivada da altura do triângulo, que pode ser encontrada usando o teorema
+                                de Pitágoras ou trigonometria.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 
@@ -37,19 +76,49 @@
             </label>
 
             <p class="resultado">
-            {% if perimetro_2 is defined %}
-            <h5>Perimetro</h5> 2 * 3.14 * {{ n2 }}  = {{ perimetro_2 }}
+                {% if perimetro_2 is defined %}
+            <h5>Perimetro</h5> 2 * 3.14 * {{ n2 }} = {{ perimetro_2 }}
             {% else %}
             {% endif %}
             </p>
 
             <p class="resultado">
-            {% if area_2 is defined %}
+                {% if area_2 is defined %}
             <h5>Área</h5> 3.14 * {{ n2 }} ** 2 = {{ area_2 }}
             {% else %}
             {% endif %}
             </p>
             <button type="submit" class="btn btn-info">Calcular</button>
+
+            <div class="accordion" id="accordion2">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                            <i class="bi bi-info-circle"></i> Como Calcular?
+                        </button>
+                    </h2>
+                    <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordion2">
+                        <div class="accordion-body">
+                            <h4>Área e Perímetro</h4>
+                            <p>Perímetro (Circunferência):
+                                A fórmula para calcular o perímetro de um círculo, também conhecido como circunferência,
+                                é:
+                                P = 2 π r
+                                Onde:
+                                P é o perímetro.
+                                r é o raio do círculo.
+                                π (pi) é uma constante aproximadamente igual a 3,14. <br>
+                                Área:
+                                A fórmula para calcular a área de um círculo é:
+                                A=πr²
+                                Onde:
+                                A é a área.
+                                r é o raio do círculo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 
@@ -61,21 +130,42 @@
             </label>
 
             <p class="resultado">
-            {% if perimetro_3 is defined %}
+                {% if perimetro_3 is defined %}
             <h5>Perimetro</h5> {{ n3 }} * 4 = {{ perimetro_3 }}
             {% else %}
             {% endif %}
             </p>
 
             <p class="resultado">
-            {% if area_3 is defined %}
+                {% if area_3 is defined %}
             <h5>Área</h5> {{ n3 }} * {{ n3 }} = {{ area_3 }}
             {% else %}
             {% endif %}
             </p>
             <button type="submit" class="btn btn-info">Calcular</button>
+            <div class="accordion" id="accordion3">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                            <i class="bi bi-info-circle"></i> Como Calcular?
+                        </button>
+                    </h2>
+                    <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordion3">
+                        <div class="accordion-body">
+                            <h4>Área e Perímetro</h4>
+                            <p> Perímetro (P): O perímetro de um quadrado é calculado pela fórmula P = 4l, onde l é o
+                                comprimento do lado do quadrado. <br>
+                                Área (A): A área de um quadrado é calculada pela fórmula A = l².
+                            <p>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
+
 
     <div class="card_operacao">
         <h2>Hexágono</h2>
@@ -85,20 +175,43 @@
             </label>
 
             <p class="resultado">
-            {% if perimetro_4 is defined %}
+                {% if perimetro_4 is defined %}
             <h5>Perimetro</h5> {{ n4 }} * 6 = {{ perimetro_4 }}
             {% else %}
             {% endif %}
             </p>
 
             <p class="resultado">
-            {% if area_4 is defined %}
+                {% if area_4 is defined %}
             <h5>Área</h5> {{ n4 }} * {{ n4 }} / 2 * 6 = {{ area_4 }}
             {% else %}
             {% endif %}
             </p>
             <button type="submit" class="btn btn-info">Calcular</button>
+
+            <div class="accordion" id="accordion4">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                            <i class="bi bi-info-circle"></i> Como Calcular?
+                        </button>
+                    </h2>
+                    <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#accordion4">
+                        <div class="accordion-body">
+                            <h4>Área e Perímetro</h4>
+                            <p> Área: \(A = \frac{3\sqrt{3}}{2} \times L\^2\) - Onde L é o comprimento do lado do
+                                hexágono. <br>
+                                Perímetro: P=6L - Onde L é o comprimento de um dos lados do hexágono.
+
+                            <p>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
+
 </div>
 {% endblock %}
