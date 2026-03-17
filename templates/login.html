@@ -21,19 +21,22 @@
 
 <div class="login d-flex justify-content-center align-items-center">
     <div class="card_login card">
-        <form class="form d-flex flex-column justify-content-center align-items-center" action="{{url_for('login')}}"
+        <form id="form-login" class="form d-flex flex-column justify-content-center align-items-center" action="{{url_for('login')}}"
               method="post">
-            Email:
-            <input placeholder="Digite o email" name="form-email" class="form-control">
-            Senha:
-            <input placeholder="Digite a senha" type="password" name="form-senha" class="form-control">
-            <button type="submit" class="btn btn-success">Entrar</button>
-            <br>
 
-            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Email:
+            <input id="input-email" placeholder="Digite o email" name="form-email" class="form-control">
+
+            Senha:
+            <input id="input-senha"  placeholder="Digite a senha" type="password" name="form-senha" class="form-control">
+
+            <button type="submit" class="btn btn-success">Entrar</button>
+            <a class="btn btn-danger" onclick="limpaInputsLogin()">Cancelar</a>
+            <br>
+        </form>
+        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Não tem conta? Registre-se
             </button>
-        </form>
     </div>
 </div>
 <!-- Modal -->
@@ -46,33 +49,33 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ url_for('cadastro_funcionario') }}" method="post">
+                <form id="form-modal" action="{{ url_for('cadastro_funcionario') }}" method="post">
 
                     <label>
-                        <input placeholder="Digite o nome" name="form-nome" class="form-control">
+                        <input id="input-nome" placeholder="Digite o nome" name="form-nome" class="form-control">
                     </label>
                     <label>
-                        <input placeholder="Digite a data de nascimento" name="form-nascimento" type="date"
-                               class="form-control">
+                        <input id="input-nascimento" placeholder="Digite a data de nascimento" name="form-nascimento" type="date" class="form-control">
                     </label>
                     <label>
-                        <input placeholder="Digite o CPF" name="form-cpf" class="form-control">
+                        <input id="input-cpf" placeholder="Digite o CPF" name="form-cpf" class="form-control">
                     </label>
                     <label>
-                        <input placeholder="Digite o email" name="form-email" class="form-control">
+                        <input id="input-email2" placeholder="Digite o email" name="form-email" class="form-control">
                     </label>
                     <label>
-                        <input placeholder="Digite o senha" name="form-senha" class="form-control">
+                        <input id="input-senha2" placeholder="Digite o senha" name="form-senha" class="form-control">
                     </label>
                     <label>
-                        <input placeholder="Digite o cargo" name="form-cargo" class="form-control">
+                        <input id="input-cargo" placeholder="Digite o cargo" name="form-cargo" class="form-control">
                     </label>
                     <label>
-                        <input placeholder="Digite o salário" name="form-salario" class="form-control">
+                        <input id="input-salario" placeholder="Digite o salário" name="form-salario" class="form-control">
                     </label>
 
 
                     <button type="submit" class="btn btn-info">Cadastrar</button>
+                    <a class="btn btn-danger" onclick="limpaInputsModal()">Cancelar</a>
                 </form>
             </div>
         </div>

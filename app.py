@@ -3,6 +3,7 @@ from datetime import datetime
 from flask import Flask, render_template, url_for, flash, request, redirect
 from sqlalchemy.exc import SQLAlchemyError
 
+from api_routes import routes
 from database import db_session, Funcionario
 from sqlalchemy import select, and_, func
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
@@ -231,7 +232,19 @@ def hexagono():
             flash("Preencha o campo para realizar o cálculo!", 'alert-danger')
     return render_template("geometria.html")
 
+@app.route('/animais')
+def animais():
+    return render_template('animais.html')
 
+@app.route('/gatos')
+def listar_gatos(): #Esse DEF precisa ser um VERBO
+    gatos = routes.get_gatos()
+
+    for gato in gatos:
+        gato["temperament"] = gato["temperament"].split(',')
+        gato["image"] = routes.get_image()["url"]
+
+    return render_template('gatos.html', gatos=gatos)
 
 # TODO Final do código
 
