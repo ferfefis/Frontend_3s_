@@ -1,7 +1,7 @@
 # Site para fundamentos de Front-End
 
 ## Site para cursos
-<img width="1881" height="910" alt="image" src="https://github.com/user-attachments/assets/68ebb2b3-e0a0-4ce4-b132-a1fe2123f6bc" />
+<img width="1897" height="916" alt="image" src="https://github.com/user-attachments/assets/dad6c672-4f5b-43e2-b20f-a516cb13ffd4" />
 
 ### Curso 1
 <img width="1887" height="912" alt="image" src="https://github.com/user-attachments/assets/57f5daf8-2e7c-4594-89f1-f537d49b813f" />
