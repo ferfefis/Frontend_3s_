@@ -20,3 +20,9 @@
 
 ## Funcionários
 <img width="1907" height="906" alt="image" src="https://github.com/user-attachments/assets/3047e31d-efcd-462d-94b7-2a67986279af" />
+
+## Animais
+<img width="1910" height="903" alt="image" src="https://github.com/user-attachments/assets/2585ab90-4935-443b-b32c-b3a65c8e93e6" />
+
+## Gatos
+<img width="1912" height="920" alt="image" src="https://github.com/user-attachments/assets/479d0df6-5a53-4093-aa54-84d911027a68" />
